@@ -1,12 +1,7 @@
-#!/bin/bash
-
-function create {
-    i=$1
-    cat << EOF > app-$1.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app${i}
+  name: app40
   labels:
     load-test: 'true'
   finalizers:
@@ -18,18 +13,9 @@ spec:
   project: default
   source:
     kustomize:
-      namePrefix: app${i}
+      namePrefix: app40
     path: kustomize-guestbook
     repoURL: https://github.com/argoproj/argocd-example-apps
     targetRevision: HEAD
   syncPolicy:
     automated: {}
-EOF
-}
-
-for i in {1..50}
-do
-   create $i &
-done
-
-wait
