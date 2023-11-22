@@ -1,12 +1,7 @@
-#!/bin/bash
-
-function create {
-    i=$1
-    cat << EOF > app-$1.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-$i
+  name: app-6
   labels:
     load-test: 'true'
   finalizers:
@@ -125,12 +120,3 @@ spec:
               key3: dmFsdWUyCg==
   syncPolicy:
     automated: {}
-EOF
-}
-
-for i in {1..50}
-do
-   create $i &
-done
-
-wait
