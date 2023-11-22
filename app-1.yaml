@@ -14,7 +14,7 @@ spec:
   source:
     chart: k8s-resources 
     repoURL: https://charts.deliveryhero.io/ 
-    targetRevision: 0.6.5
+    targetRevision: "0.6.5"
     helm:
       values: |
         Secrets:
