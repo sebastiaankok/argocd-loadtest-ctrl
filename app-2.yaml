@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-1
+  name: app-2
   labels:
     load-test: 'true'
   finalizers:
