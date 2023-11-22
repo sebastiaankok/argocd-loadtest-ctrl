@@ -9,13 +9,26 @@ metadata:
 spec:
   destination:
     namespace: default
-    name: 03795-sebastiaan-playground
+    name: in-cluster 
   project: default
   source:
-    kustomize:
-      namePrefix: app1
-    path: kustomize-guestbook
-    repoURL: https://github.com/argoproj/argocd-example-apps
+    chart: k8s-resources 
+    repoURL: https://charts.deliveryhero.io/ 
+    targetRevision: 0.6.5
+    helm:
+      values: |
+        Secrets:
+          - name: secret01 
+            fullnameOverride: ""
+            annotations: {}
+            extraLabels: {}
+            tplB64Keys:
+              key1: '{{ randAlphaNum 20 | b64enc }}'
+            b64Keys:
+              key2: value1
+            keys:
+              key3: dmFsdWUyCg==
+    repoURL: https://charts.deliveryhero.io/ 
     targetRevision: HEAD
   syncPolicy:
     automated: {}
