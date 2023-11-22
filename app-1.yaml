@@ -28,7 +28,5 @@ spec:
               key2: value1
             keys:
               key3: dmFsdWUyCg==
-    repoURL: https://charts.deliveryhero.io/ 
-    targetRevision: HEAD
   syncPolicy:
     automated: {}
